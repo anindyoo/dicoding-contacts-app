@@ -1,5 +1,5 @@
 import React from 'react';
-import ContacList from './ContactList';
+import ContactList from './ContactList';
 import { getData } from '../utils/data';
 import ContactInput from './ContactInput';
 
@@ -39,7 +39,7 @@ class ContactApp extends React.Component {
         <h2>Add Contact</h2>
         <ContactInput addContact={this.onAddContactHandler} />
         <h2>Contact List</h2>
-        <ContacList
+        <ContactList
           contacts={this.state.contacts}
           onDelete={this.onDeleteHandler}
         />
