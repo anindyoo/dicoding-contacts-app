@@ -1,7 +1,8 @@
 import React from 'react';
 import ContactItem from './ContactItem';
+import PropTypes from 'prop-types';
 
-const ContacList = ({ contacts, onDelete }) => (
+const ContactList = ({ contacts, onDelete }) => (
   <div className="contact-list">
     {contacts.map((contact) => (
       <ContactItem
@@ -13,4 +14,9 @@ const ContacList = ({ contacts, onDelete }) => (
   </div>
 );
 
-export default ContacList;
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onDelete: PropTypes.func.isRequired,
+};
+
+export default ContactList;
