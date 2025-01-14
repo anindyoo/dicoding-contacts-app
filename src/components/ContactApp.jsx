@@ -1,13 +1,17 @@
 import React from 'react';
 import ContactList from './ContactList';
-import { getData } from '../utils/data';
+import { getContacts } from '../utils/data';
 import ContactInput from './ContactInput';
+import Navigation from './Navigation';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from '../pages/HomePage';
+import AddPage from '../pages/AddPage';
 
 class ContactApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      contacts: getData(),
+      contacts: getContacts(),
     };
     this.onDeleteHandler = this.onDeleteHandler.bind(this);
     this.onAddContactHandler = this.onAddContactHandler.bind(this);
@@ -35,14 +39,16 @@ class ContactApp extends React.Component {
   render() {
     return (
       <div className="contact-app">
-        <h1>Contact App</h1>
-        <h2>Add Contact</h2>
-        <ContactInput addContact={this.onAddContactHandler} />
-        <h2>Contact List</h2>
-        <ContactList
-          contacts={this.state.contacts}
-          onDelete={this.onDeleteHandler}
-        />
+        <header className="contact-app__header">
+          <h1>Contact App</h1>
+          <Navigation />
+        </header>
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/add" element={<AddPage />} />
+          </Routes>
+        </main>
       </div>
     );
   }
