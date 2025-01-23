@@ -13,6 +13,7 @@ class ContactApp extends React.Component {
 
     this.state = {
       authedUser: null,
+      initializing: true,
     };
 
     this.onLoginSuccess = this.onLoginSuccess.bind(this);
