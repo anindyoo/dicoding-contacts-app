@@ -43,7 +43,6 @@ class ContactApp extends React.Component {
     this.setState(() => {
       return {
         authedUser: data,
-        initializing: true,
       };
     });
   }
